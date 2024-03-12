@@ -1,7 +1,11 @@
 # FullStack Social Media App
 
-Build a COMPLETE Fullstack Responsive MERN App with Auth, Likes, Dark Mode | React, MongoDB, MUI
+## Start Your MongoDb Server
 
-Video: https://www.youtube.com/watch?v=K8YELRmUb5o
+## Add Env Variable Values
 
-For all related questions and discussions about this project, check out the discord: https://discord.gg/2FfPeEk2mX
+## Install Package in Both the Folders (Client / Server) -> npm install
+
+## Inside Server Folder -> npm start
+
+## Inside client Folder -> npm start

@@ -1,0 +1,51 @@
+select {
+	margin: 0 auto;
+	color: black;
+	width: 100px;
+	/* padding: 15px; */
+	height: 3rem;
+    margin: auto;
+	cursor: pointer;
+    border-radius: 30px;
+    background-color: #F0F0F0;
+	/* background: url(http://sharpik.com/wip/cuteselect/arrow.png) 295px 12px no-repeat white; */
+}
+
+select:hover {
+	background-color: transparent;
+	color: yellowgreen;
+	/* padding: 15px 5px 15px 25px; */
+}
+
+select option {
+	background-color: white;
+	color: gray;
+	width: 310px;
+	padding: 10px 15px;
+	height: 20px;
+	cursor: pointer;
+}
+
+select option:hover {
+	padding-left: 25px;
+	width: 270px;
+	color: #EC6F66;
+}
+
+.resizable-textarea {
+    resize: vertical;
+    overflow:hidden;
+    border-style: none;
+    border-radius: 30px;
+    min-height: 50px; /* Set a minimum height */
+    max-height: 200px; /* Set a maximum height if needed */
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+
+TagsInput{
+    margin: auto;
+    margin: left 10px;
+  }

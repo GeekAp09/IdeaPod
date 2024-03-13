@@ -1,3 +1,6 @@
+import './home.css';
+import { TagsInput } from "react-tag-input-component";
+
 import {
   EditOutlined,
   DeleteOutlined,
@@ -24,10 +27,13 @@ import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
+// import TagsInput from './Tags';
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
+  const [selected, setSelected] = useState(["papaya"]);
+  const [selectedValue, setSelectedValue] = useState('');
   const [image, setImage] = useState(null);
   const [post, setPost] = useState("");
   const { palette } = useTheme();
@@ -36,6 +42,11 @@ const MyPostWidget = ({ picturePath }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
+console.log(selected);
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
 
   const handlePost = async () => {
     const formData = new FormData();
@@ -61,17 +72,31 @@ const MyPostWidget = ({ picturePath }) => {
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
-        <InputBase
-          placeholder="What's on your mind..."
-          onChange={(e) => setPost(e.target.value)}
-          value={post}
-          sx={{
+        <textarea
+      className="resizable-textarea"
+      onChange={(e) => setPost(e.target.value)}
+        value={post}
+      placeholder="What's cooking in Your Mind Today..."
+    />
+          {/* sx={{
             width: "100%",
             backgroundColor: palette.neutral.light,
             borderRadius: "2rem",
             padding: "1rem 2rem",
           }}
-        />
+        /> */}
+       <section id="header-container">
+  <select  value={selectedValue} onChange={handleSelectChange}>
+    <option disabled>Related Field</option>
+    <option value="choix-2">Finance</option>
+    <option value="choix-3">Education</option>
+    <option value="choix-4">Government Body</option>
+    <option value="choix-5">Ecommerce</option>
+    <option value="choix-5">Banking</option>
+    <option value="choix-5">Real Estate</option>
+    <option value="choix-5">Judiciary</option>
+  </select>
+</section>
       </FlexBetween>
       {isImage && (
         <Box
@@ -131,12 +156,16 @@ const MyPostWidget = ({ picturePath }) => {
           </Typography>
         </FlexBetween>
 
-        {isNonMobileScreens ? (
+        {/* {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
-              <GifBoxOutlined sx={{ color: mediumMain }} />
-              <Typography color={mediumMain}>Clip</Typography>
-            </FlexBetween>
+            <TagsInput
+        value={selected}
+        onChange={setSelected}
+        name="fruits"
+        placeHolder="enter fruits"
+      />
+              </FlexBetween>
 
             <FlexBetween gap="0.25rem">
               <AttachFileOutlined sx={{ color: mediumMain }} />
@@ -152,7 +181,15 @@ const MyPostWidget = ({ picturePath }) => {
           <FlexBetween gap="0.25rem">
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
-        )}
+        )} */}
+        <FlexBetween gap="0.25rem">
+        <TagsInput
+        value={selected}
+        onChange={setSelected}
+        name="fruits"
+        placeHolder="#Add Tags Here"
+      />
+      </FlexBetween>
 
         <Button
           disabled={!post}
